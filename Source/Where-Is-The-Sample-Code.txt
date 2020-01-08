@@ -1,1 +1,1 @@
-All code examples are in the numbered branches, not in Master
+All code examples are in the numbered branches, not in the Master branch.

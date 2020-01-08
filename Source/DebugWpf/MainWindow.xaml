@@ -10,9 +10,10 @@
 				FontSize='14'>
 	<StackPanel Margin='80,50'
 							HorizontalAlignment='Stretch'>
-		<Button Content='Start Demo'
+		<TextBlock Text='Choose Robot Teams' FontSize='22'/>
+		<Button Content='Generate Robot Teams'
 						Click='Button_Click' />
-		<Button Content='Clear data'
+		<Button Content='Clear Lists'
 						Click='ClearButton_Click' />
 		<Grid>
 			<Grid.ColumnDefinitions>
@@ -23,33 +24,32 @@
 				<RowDefinition />
 				<RowDefinition />
 			</Grid.RowDefinitions>
-			<ListBox x:Name='FastListBox'
+			<ListBox x:Name='TeamAListBox'
 							 Margin='20'
 							 MinHeight='120'>
 				<ListBox.ItemTemplate>
 					<DataTemplate>
-						<TextBlock Text='{Binding}' />
+						<StackPanel Orientation='Horizontal'>
+							<TextBlock Text='{Binding PrimeName}'
+												 MinWidth='60' />
+							<TextBlock Text="{Binding CrewName, StringFormat='{}[{0}]'}" />
+						</StackPanel>
 					</DataTemplate>
 				</ListBox.ItemTemplate>
 			</ListBox>
-			<ProgressBar x:Name='FastProgressBar'
-									 Grid.Row='1'
-									 Margin='20,0' />
-			<ListBox x:Name='SlowListBox'
+			<ListBox x:Name='TeamBListBox'
 							 Margin='20'
 							 MinHeight='120'
 							 Grid.Column='1'>
 				<ListBox.ItemTemplate>
 					<DataTemplate>
-						<TextBlock Text='{Binding }' />
+						<StackPanel Orientation='Horizontal'>
+							<TextBlock Text='{Binding PrimeName}' MinWidth='60' />
+							<TextBlock Text="{Binding CrewName, StringFormat='{}[{0}]'}" />
+						</StackPanel>
 					</DataTemplate>
 				</ListBox.ItemTemplate>
 			</ListBox>
-			<ProgressBar x:Name='SlowProgressBar'
-									 Grid.Row='1'
-									 Grid.Column='1'
-									 MinHeight='20'
-									 Margin='20,0' />
 		</Grid>
 	</StackPanel>
 </Window>

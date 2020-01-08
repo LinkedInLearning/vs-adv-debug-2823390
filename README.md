@@ -24,7 +24,7 @@ To use these exercise files, follow the instructions in the course to learn how 
 For this course the instructor uses Visual Studio 2019.  You need Visual Studio Ultimate or Visual Studio Enterprise editions to follow along with the IntelliTrace examples.  
 
 ## About our .NET courses
-When you are ready to [learn more about .NET](https://www.linkedin.com/learning/search?entityType=COURSE&keywords=.net) or [Visual Studio](https://www.linkedin.com/learning/search?entityType=COURSE&keywords=visual%20studio)o, **LinkedIn Learning** has what you need. 
+When you are ready to [learn more about .NET](https://www.linkedin.com/learning/search?entityType=COURSE&keywords=.net) or [Visual Studio](https://www.linkedin.com/learning/search?entityType=COURSE&keywords=visual%20studio), **LinkedIn Learning** has what you need. 
 
 ## About the Instructor - Walt Ritscher
 Check out my [other courses](https://www.linkedin.com/learning/instructors/walt-ritscher) on LinkedIn Learning.  Follow me on [LinkedIn](https://www.linkedin.com/in/waltritscher/?trk=lil_course) and [Twitter](https://twitter.com/waltritscher). 

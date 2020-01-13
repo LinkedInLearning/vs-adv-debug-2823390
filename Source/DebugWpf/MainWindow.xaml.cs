@@ -18,8 +18,8 @@ namespace DebugWpf
 			string formattedResult;
 
 			// step into
-			numberMonths = 12;
-			loanAmount = 1200;
+			numberMonths = 10;
+			loanAmount = 1100;
 			rate = LoanCalc.GetCurrentLoanRate();
 			monthlyPayment = LoanCalc.CalculateMonthlyPayment(numberOfMonths: numberMonths,
 																												 loanAmount: loanAmount,
@@ -29,24 +29,26 @@ namespace DebugWpf
 
 			// step over
 			numberMonths = 4;
-			loanAmount = 2800;
+			loanAmount = 2200;
 			monthlyPayment = LoanCalc.CalculateMonthlyPayment(numberOfMonths: numberMonths,
 																												 loanAmount: loanAmount,
 																												 loanRate: rate);
-			ResultsListBox.Items.Add($"{loanAmount:C} loan for {numberMonths} months: {monthlyPayment:C}");
+			formattedResult = $"{loanAmount:C} loan (at {rate:P}) {numberMonths} months: {monthlyPayment:C}";
+			ResultsListBox.Items.Add(formattedResult);
 
 			// step out;
 			numberMonths = 36;
-			loanAmount = 3770;
+			loanAmount = 3300;
 			monthlyPayment = LoanCalc.CalculateMonthlyPayment(numberOfMonths: numberMonths,
 				 																								loanAmount: loanAmount,
 																												loanRate: rate);
-			ResultsListBox.Items.Add($"{loanAmount:C} loan for {numberMonths} months: {monthlyPayment:C}");
+			formattedResult = $"{loanAmount:C} loan (at {rate:P}) {numberMonths} months: {monthlyPayment:C}";
+			ResultsListBox.Items.Add(formattedResult);
 		}
 
 		private void ClearButton_Click(object sender, RoutedEventArgs e)
 		{
-			ResultsListBox.ItemsSource = null;
+			ResultsListBox.Items.Clear();
 		}
 	}
 }

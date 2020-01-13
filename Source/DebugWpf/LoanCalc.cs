@@ -10,7 +10,7 @@ namespace DebugWpf
 	{
 		public static decimal CalculateMonthlyPayment(int numberOfMonths, decimal loanAmount, decimal loanRate)
 		{
-			// simplified formula
+			// simplified and inaccurate formula
 			decimal perMonth = 0;
 			decimal perMonthWithLoanRate = 0;
 		
@@ -19,7 +19,7 @@ namespace DebugWpf
 
 			perMonth = loanAmount / numberOfMonths;
 
-			perMonthWithLoanRate = perMonth * loanRate;
+			perMonthWithLoanRate = perMonth * (1+ loanRate);
 			return perMonthWithLoanRate;
 
 		}
@@ -28,7 +28,7 @@ namespace DebugWpf
 		{
 			var currentFederalRate = OnlineServices.GetBankRateFromSystem();
 			var ourCalculatedRate = currentFederalRate + OnlineServices.GetLoanFee();
-			return ourCalculatedRate;
+			return ourCalculatedRate/100;
 
 		}
 	}

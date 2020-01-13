@@ -24,21 +24,22 @@ namespace DebugWpf
 			monthlyPayment = LoanCalc.CalculateMonthlyPayment(numberOfMonths: numberMonths,
 																												 loanAmount: loanAmount,
 																												 loanRate: rate);
-			ResultsListBox.Items.Add($"{loanAmount:C} loan for {numberMonths} months: {monthlyPayment:C}");
+			formattedResult = $"{loanAmount:C} loan (at {rate:P}) {numberMonths} months: {monthlyPayment:C}";
+			ResultsListBox.Items.Add(formattedResult);
 
 			// step over
 			numberMonths = 4;
 			loanAmount = 2800;
-			monthlyPayment = LoanCalc.CalculateMonthlyPayment(numberOfMonths: 24,
-																												 loanAmount: 2800,
+			monthlyPayment = LoanCalc.CalculateMonthlyPayment(numberOfMonths: numberMonths,
+																												 loanAmount: loanAmount,
 																												 loanRate: rate);
 			ResultsListBox.Items.Add($"{loanAmount:C} loan for {numberMonths} months: {monthlyPayment:C}");
 
 			// step out;
 			numberMonths = 36;
 			loanAmount = 3770;
-			monthlyPayment = LoanCalc.CalculateMonthlyPayment(numberOfMonths: 36,
-				 																								loanAmount: 3700,
+			monthlyPayment = LoanCalc.CalculateMonthlyPayment(numberOfMonths: numberMonths,
+				 																								loanAmount: loanAmount,
 																												loanRate: rate);
 			ResultsListBox.Items.Add($"{loanAmount:C} loan for {numberMonths} months: {monthlyPayment:C}");
 		}

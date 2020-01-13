@@ -10,7 +10,7 @@
 				FontSize='14'>
 	<StackPanel Margin='80,50'
 							HorizontalAlignment='Stretch'>
-		<TextBlock Text='Choose Robot Teams'
+		<TextBlock Text='Calculate Loan Payments     '
 							 FontSize='22' />
 		<Button Content='Step Through Functions'
 						Click='Button_Click' />

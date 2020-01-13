@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using System.Windows;
+﻿using System.Windows;
 
 namespace DebugWpf
 {
@@ -16,37 +15,37 @@ namespace DebugWpf
 			decimal rate = 5.6M;
 			int numberMonths;
 			decimal loanAmount;
+			string formattedResult;
 
 			// step into
 			numberMonths = 12;
 			loanAmount = 1200;
-			monthlyPayment = Financial.CalculateMonthlyPayment(numberOfMonths: numberMonths,
-																												 loanRate: rate,
-																												 loanAmount: loanAmount);
+			rate = LoanCalc.GetCurrentLoanRate();
+			monthlyPayment = LoanCalc.CalculateMonthlyPayment(numberOfMonths: numberMonths,
+																												 loanAmount: loanAmount,
+																												 loanRate: rate);
 			ResultsListBox.Items.Add($"{loanAmount:C} loan for {numberMonths} months: {monthlyPayment:C}");
 
 			// step over
 			numberMonths = 4;
 			loanAmount = 2800;
-			monthlyPayment = Financial.CalculateMonthlyPayment(numberOfMonths: 24,
-																									 loanRate: rate,
-																									 loanAmount: 2800);
+			monthlyPayment = LoanCalc.CalculateMonthlyPayment(numberOfMonths: 24,
+																												 loanAmount: 2800,
+																												 loanRate: rate);
 			ResultsListBox.Items.Add($"{loanAmount:C} loan for {numberMonths} months: {monthlyPayment:C}");
 
 			// step out;
 			numberMonths = 36;
 			loanAmount = 3770;
-			monthlyPayment = Financial.CalculateMonthlyPayment(numberOfMonths: 36,
-																								 loanRate: rate,
-																								 loanAmount: 3700);
+			monthlyPayment = LoanCalc.CalculateMonthlyPayment(numberOfMonths: 36,
+				 																								loanAmount: 3700,
+																												loanRate: rate);
 			ResultsListBox.Items.Add($"{loanAmount:C} loan for {numberMonths} months: {monthlyPayment:C}");
-
 		}
 
-			private void ClearButton_Click(object sender, RoutedEventArgs e)
+		private void ClearButton_Click(object sender, RoutedEventArgs e)
 		{
 			ResultsListBox.ItemsSource = null;
-			
 		}
 	}
 }

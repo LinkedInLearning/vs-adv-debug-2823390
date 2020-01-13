@@ -10,45 +10,25 @@
 				FontSize='14'>
 	<StackPanel Margin='80,50'
 							HorizontalAlignment='Stretch'>
-		<TextBlock Text='Choose Robot Teams' FontSize='22'/>
-		<Button Content='Generate Robot Teams'
+		<TextBlock Text='Choose Robot Teams'
+							 FontSize='22' />
+		<Button Content='Step Through Functions'
 						Click='Button_Click' />
 		<Button Content='Clear Lists'
 						Click='ClearButton_Click' />
 		<Grid>
 			<Grid.ColumnDefinitions>
-				<ColumnDefinition Width='58*' />
-				<ColumnDefinition Width='61*' />
+				<ColumnDefinition Width='259*' />
+				
 			</Grid.ColumnDefinitions>
 			<Grid.RowDefinitions>
 				<RowDefinition />
 				<RowDefinition />
 			</Grid.RowDefinitions>
-			<ListBox x:Name='TeamAListBox'
+			<ListBox x:Name='ResultsListBox'
 							 Margin='20'
 							 MinHeight='120'>
-				<ListBox.ItemTemplate>
-					<DataTemplate>
-						<StackPanel Orientation='Horizontal'>
-							<TextBlock Text='{Binding PrimeName}'
-												 MinWidth='60' />
-							<TextBlock Text="{Binding CrewName, StringFormat='{}[{0}]'}" />
-						</StackPanel>
-					</DataTemplate>
-				</ListBox.ItemTemplate>
-			</ListBox>
-			<ListBox x:Name='TeamBListBox'
-							 Margin='20'
-							 MinHeight='120'
-							 Grid.Column='1'>
-				<ListBox.ItemTemplate>
-					<DataTemplate>
-						<StackPanel Orientation='Horizontal'>
-							<TextBlock Text='{Binding PrimeName}' MinWidth='60' />
-							<TextBlock Text="{Binding CrewName, StringFormat='{}[{0}]'}" />
-						</StackPanel>
-					</DataTemplate>
-				</ListBox.ItemTemplate>
+			
 			</ListBox>
 		</Grid>
 	</StackPanel>

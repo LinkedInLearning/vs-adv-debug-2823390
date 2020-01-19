@@ -12,8 +12,11 @@
 							HorizontalAlignment='Stretch'>
 		<TextBlock Text='Calculate Loan Payments     '
 							 FontSize='22' />
-		<Button Content='Step Through Functions'
+		<Button Content='IntelliTrace Exceptions'
 						Click='Button_Click' />
+		<Button Content='Unhandled Exception'
+						Name='UnhandledButton'
+						Click='UnhandledButton_Click' />
 		<Button Content='Clear Lists'
 						Click='ClearButton_Click' />
 		<Grid>

@@ -48,10 +48,11 @@ namespace DebugWpf
 				ResultsListBox.Items.Add(formattedResult);
 			} catch (System.Net.Http.HttpRequestException ex)
 			{
-				MessageBox.Show($"{ex.GetType().Name}: {ex.Message}");
+				ResultsListBox.Items.Add($"{ex.GetType().Name}: {ex.Message}");
+				
 			} catch (System.Net.HttpListenerException ex)
 			{
-				MessageBox.Show($"{ex.GetType().Name}: {ex.Message}");
+				ResultsListBox.Items.Add($"{ex.GetType().Name}: {ex.Message}");
 			} catch (System.Exception)
 			{
 				MessageBox.Show("Something unexpected happened in the application! Please restart the application.");

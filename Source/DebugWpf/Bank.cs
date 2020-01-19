@@ -9,14 +9,20 @@ namespace DebugWpf.Financial
 	internal class OnlineServices
 	{
 		static Random _ran = new Random();
+		static long _counter = 0;
 		// simulated service
+		static OnlineServices()
+		{
+			 _counter = -1;
+		}
 		public static Decimal GetBankRateFromSystem()
 		{
-			if (_ran.NextDouble() < .2)
+			_counter += 1;
+			if (_counter % 3 == 1)
 			{
 				throw new System.Net.HttpListenerException(errorCode: 422, "Cannot start HTTP listener");
 			}
-			else if (_ran.NextDouble() < .4)
+			else if (_counter % 3 == 2)
 			{
 				throw new System.Net.Http.HttpRequestException("There is trouble with the HTTP request.");
 			}

@@ -11,10 +11,15 @@
 	<StackPanel Margin='80,50'
 							HorizontalAlignment='Stretch'>
 		<TextBlock Text='Choose Robot Teams' FontSize='22'/>
-		<Button Content='Generate Robot Teams'
+		<Button x:Name='GenerateButton'
+						Content='Generate Robot Teams'
 						Click='Button_Click' />
-		<Button Content='Clear Lists'
+		<Button x:Name='ClearButton'
+						Content='Clear Lists'
 						Click='ClearButton_Click' />
+		<Button x:Name='MessageButton'
+						Content='Show Message'
+						Click='MessageButton_Click' />
 		<Grid>
 			<Grid.ColumnDefinitions>
 				<ColumnDefinition Width='58*' />
@@ -51,6 +56,9 @@
 				</ListBox.ItemTemplate>
 			</ListBox>
 		</Grid>
+		<TextBlock x:Name='MatchTextBlock'>
+			
+		</TextBlock>
 	</StackPanel>
 </Window>
 

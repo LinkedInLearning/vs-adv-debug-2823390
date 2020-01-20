@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace RobotNameGenerator
 {
@@ -13,8 +14,22 @@ namespace RobotNameGenerator
 
 		public NameGenerator()
 		{
-			_crewNames = System.IO.File.ReadAllLines("RobotCrewNames.txt").ToList<string>();
+			int counter = 4;
+			Console.WriteLine(counter);
+			// read XML instead of text files
+			var xmlDoc = XDocument.Load("RobotNames.xml");
+		
+			
+			 _crewNames = xmlDoc.Root.Elements("CrewNames").Elements("CrewName")
+																 .Select(element => element.Value)
+																 .ToList<string>();
+			_primeNames = xmlDoc.Root.Elements("PrimeNames").Elements("PrimeName")
+																.Select(element => element.Value)
+																.ToList<string>();
+			#region old file access code
+			//_crewNames = System.IO.File.ReadAllLines("RobotCrewNames.txt").ToList<string>();
 			_primeNames = System.IO.File.ReadAllLines("RobotPrimeNames.txt").ToList<string>();
+			#endregion
 		}
 
 		public RobotName GetRobotName()

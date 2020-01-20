@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Robots>
+	<CrewNames>
+		<CrewName>Deltron</CrewName>
+		<CrewName>Starchasers</CrewName>
+		<CrewName>Endeavour</CrewName>
+		<CrewName>Kulloo Kulli</CrewName>
+		<CrewName>'de Machinos</CrewName>
+		<CrewName>Animatrones</CrewName>
+		<CrewName>Argenno</CrewName>
+		<CrewName>Ga-mel-tronics</CrewName>
+		<CrewName>Adrino</CrewName>
+		<CrewName>Luminousi</CrewName>
+		<CrewName>Radionova</CrewName>
+		<CrewName>Hydro-4Av</CrewName>
+		<CrewName>Freefallers</CrewName>
+		<CrewName>Shadow-runners</CrewName>
+		<CrewName>the Rogues</CrewName>
+		<CrewName>Hammer-Jammer</CrewName>
+		<CrewName>Synergie</CrewName>
+	</CrewNames>
+	<PrimeNames>
+		<PrimeName>Mingle</PrimeName>
+		<PrimeName>Yodel</PrimeName>
+		<PrimeName>Squido</PrimeName>
+		<PrimeName>Spook</PrimeName>
+		<PrimeName>Melville</PrimeName>
+		<PrimeName>Filo</PrimeName>
+		<PrimeName>Blade</PrimeName>
+		<PrimeName>Timber</PrimeName>
+		<PrimeName>Skedle</PrimeName>
+		<PrimeName>Smiley</PrimeName>
+		<PrimeName>Frex</PrimeName>
+		<PrimeName>Drift</PrimeName>
+		<PrimeName>Stingee</PrimeName>
+		<PrimeName>Dodgery</PrimeName>
+		<PrimeName>Jellyfish</PrimeName>
+		<PrimeName>Hammer-Jammer</PrimeName>
+		<PrimeName>Yenergy</PrimeName>
+	</PrimeNames>
+</Robots>

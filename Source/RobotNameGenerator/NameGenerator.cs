@@ -14,8 +14,7 @@ namespace RobotNameGenerator
 
 		public NameGenerator()
 		{
-			int counter = 4;
-			Console.WriteLine(counter);
+		
 			// read XML instead of text files
 			var xmlDoc = XDocument.Load("RobotNames.xml");
 		

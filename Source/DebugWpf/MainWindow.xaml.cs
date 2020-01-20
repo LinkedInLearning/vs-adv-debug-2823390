@@ -40,9 +40,21 @@ namespace DebugWpf
 													icon: MessageBoxImage.Question,
 													button: MessageBoxButton.YesNo) == MessageBoxResult.Yes)
 			{
-				var teamAMember = (RobotName)(TeamAListBox.SelectedItem );
-				var teamBMember = (RobotName)(TeamBListBox.SelectedItem);
-				MatchTextBlock.Text = teamAMember.PrimeName + " vs. " + teamBMember.PrimeName;
+				try
+				{
+					var teamAMember = (RobotName)(TeamAListBox.SelectedItem);
+					var teamBMember = (RobotName)(TeamBListBox.SelectedItem);
+					MatchTextBlock.Text = teamAMember.PrimeName + " vs. " + teamBMember.PrimeName;
+				} catch (NullReferenceException ex)
+				{
+					MessageBox.Show("Null value, did you select a team member from the listbox?");
+				} catch (Exception)
+				{
+
+					throw;
+				}
+
+
 			}
 		}
 	}

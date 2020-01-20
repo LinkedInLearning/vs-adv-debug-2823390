@@ -7,7 +7,7 @@
 				mc:Ignorable="d"
 				Title="MainWindow"
 				Width="700"
-				FontSize='14'>
+				FontSize='18'>
 	<StackPanel Margin='80,50'
 							HorizontalAlignment='Stretch'>
 		<TextBlock Text='Choose Robot Teams' FontSize='22'/>

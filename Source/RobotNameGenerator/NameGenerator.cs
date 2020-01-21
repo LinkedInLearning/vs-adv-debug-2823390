@@ -25,10 +25,7 @@ namespace RobotNameGenerator
 			_primeNames = xmlDoc.Root.Elements("PrimeNames").Elements("PrimeName")
 																.Select(element => element.Value)
 																.ToList<string>();
-			#region old file access code
-			//_crewNames = System.IO.File.ReadAllLines("RobotCrewNames.txt").ToList<string>();
-			_primeNames = System.IO.File.ReadAllLines("RobotPrimeNames.txt").ToList<string>();
-			#endregion
+
 		}
 
 		public RobotName GetRobotName()

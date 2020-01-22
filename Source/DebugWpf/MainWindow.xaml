@@ -10,11 +10,11 @@
 				FontSize='14'>
 	<StackPanel Margin='80,50'
 							HorizontalAlignment='Stretch'>
-		<TextBlock Text='Choose Robot Teams' FontSize='22'/>
-		<Button Content='Generate Robot Teams'
+		<TextBlock Text='CPU' FontSize='22'/>
+		<Button Content='Load one core'
 						Click='Button_Click' />
-		<Button Content='Clear Lists'
-						Click='ClearButton_Click' />
+		<Button Content='Load four cores'
+						Click='LoadFourButton_Click' />
 		<Grid>
 			<Grid.ColumnDefinitions>
 				<ColumnDefinition Width='58*' />

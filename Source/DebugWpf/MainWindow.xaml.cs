@@ -28,7 +28,7 @@ namespace DebugWpf
 		private void LoadFourButton_Click(object sender, RoutedEventArgs e)
 		{
 			// stress some of the CPU cores
-			var percents = new List<int>() { 30, 50, 80, 90 , 50};
+			var percents = new List<int>() { 30, 50, 80, 90 };
 			Parallel.ForEach(percents, (p) => CpuTester.UseTheCpu(p, 2000));
 
 			// other code

@@ -10,11 +10,14 @@
 				FontSize='14'>
 	<StackPanel Margin='80,50'
 							HorizontalAlignment='Stretch'>
-		<TextBlock Text='Choose Robot Teams' FontSize='22'/>
+		<TextBlock Text='Memory'
+							 FontSize='22'/>
 		<Button Content='Generate Robot Teams'
 						Click='Button_Click' />
 		<Button Content='Clear Lists'
 						Click='ClearButton_Click' />
+		<Button Content='Force GC' Name='ForceButton'
+						Click='ForceButton_Click' />
 		<Grid>
 			<Grid.ColumnDefinitions>
 				<ColumnDefinition Width='58*' />

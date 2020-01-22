@@ -14,19 +14,24 @@ namespace DebugWpf
 		List<int> _bigList = new List<int>();
 		private void Button_Click(object sender, RoutedEventArgs e)
 		{
-			_bigList.AddRange(Enumerable.Range(1, 1000 * 1000));
-			var nameGen = new RobotNameGenerator.NameGenerator();
+			_bigList.AddRange(Enumerable.Range(1, 1000 * 1500 ));
+			
+			TeamAListBox.Items.Add ($"{_bigList.Count:E2} total items");
 
-			var roboNames = nameGen.GetAllRobotNames();
-			TeamAListBox.ItemsSource = roboNames.Take(6);
-			TeamBListBox.ItemsSource = roboNames.Skip(6).Take(6);
 		}
 
 		private void ClearButton_Click(object sender, RoutedEventArgs e)
 		{
-			_bigList.RemoveRange(1, 500 * 1000);
-			TeamAListBox.ItemsSource = null;
-			TeamBListBox.ItemsSource = null;
+			try
+			{
+				_bigList.RemoveRange(1, (int)(_bigList.Count /4));
+			} catch (Exception ex)
+			{
+				Console.WriteLine(ex.Message);
+			}
+
+			TeamBListBox.Items.Add( $"{_bigList.Count:E2} total items");
+		
 		}
 
 		private void ForceButton_Click(object sender, RoutedEventArgs e)

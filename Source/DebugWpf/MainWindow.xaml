@@ -11,12 +11,13 @@
 	<StackPanel Margin='80,50'
 							HorizontalAlignment='Stretch'>
 		<TextBlock Text='Memory'
-							 FontSize='22'/>
-		<Button Content='Generate Robot Teams'
+							 FontSize='22' />
+		<Button Content='Add Items to List'
 						Click='Button_Click' />
-		<Button Content='Clear Lists'
+		<Button Content='Remove items from List'
 						Click='ClearButton_Click' />
-		<Button Content='Force GC' Name='ForceButton'
+		<Button Content='Force GC'
+						Name='ForceButton'
 						Click='ForceButton_Click' />
 		<Grid>
 			<Grid.ColumnDefinitions>
@@ -30,28 +31,13 @@
 			<ListBox x:Name='TeamAListBox'
 							 Margin='20'
 							 MinHeight='120'>
-				<ListBox.ItemTemplate>
-					<DataTemplate>
-						<StackPanel Orientation='Horizontal'>
-							<TextBlock Text='{Binding PrimeName}'
-												 MinWidth='60' />
-							<TextBlock Text="{Binding CrewName, StringFormat='{}[{0}]'}" />
-						</StackPanel>
-					</DataTemplate>
-				</ListBox.ItemTemplate>
+
 			</ListBox>
 			<ListBox x:Name='TeamBListBox'
 							 Margin='20'
 							 MinHeight='120'
 							 Grid.Column='1'>
-				<ListBox.ItemTemplate>
-					<DataTemplate>
-						<StackPanel Orientation='Horizontal'>
-							<TextBlock Text='{Binding PrimeName}' MinWidth='60' />
-							<TextBlock Text="{Binding CrewName, StringFormat='{}[{0}]'}" />
-						</StackPanel>
-					</DataTemplate>
-				</ListBox.ItemTemplate>
+
 			</ListBox>
 		</Grid>
 	</StackPanel>

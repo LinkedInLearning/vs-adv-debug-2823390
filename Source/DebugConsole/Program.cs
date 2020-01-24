@@ -20,12 +20,12 @@ namespace DebugConsole
 				MainThreadWork();
 			}
 			Console.WriteLine("Robots Experiment Finished");
-			
-		
-			
+
+
+
 		}
 		private static bool _runAsync = false;
-		private  static bool AppMenu()
+		private static bool AppMenu()
 		{
 
 			Console.ResetColor();
@@ -84,54 +84,77 @@ namespace DebugConsole
 		}
 		static void StartRobotsOneThread()
 		{
-			Console.WriteLine("Start Work on Main Thread");
-			var robot1 = new Robot(name: "1-Mingle", itemCount: 10, workEfficiency: .02, scanDelay: 500);
-			var robot2 = new Robot(name: "2-Yodel", itemCount: 12, workEfficiency: .04, scanDelay: 35, laserColor: ConsoleColor.Yellow);
-			var robot3 = new Robot(name: "3-Blade", itemCount: 15, workEfficiency: .05, scanDelay: 135, laserColor: ConsoleColor.Cyan);
-			var robot4 = new Robot(name: "4-Spook", itemCount: 4, workEfficiency: .04, scanDelay: 500, laserColor: ConsoleColor.White);
-			robot1.PickupItems();
-			robot2.PickupItems();
-			robot3.PickupItems();
-			robot4.PickupItems();
+			ChargeBatteries();
+			_robot1.PickupItems();
+			_robot2.PickupItems();
+			_robot3.PickupItems();
+			_robot4.PickupItems();
 		}
 		private static void StartRobotsParellel()
 		{
+			ChargeBatteries();
 			var robots = new List<Robot>();
-			robots.Add(new Robot(name: "1-Mingle", itemCount: 10, workEfficiency: .02, scanDelay: 500));
-			robots.Add(new Robot(name: "2-Yodel", itemCount: 30, workEfficiency: .04, scanDelay: 35, laserColor: ConsoleColor.Yellow));
-			robots.Add(new Robot(name: "3-Blade", itemCount: 15, workEfficiency: .05, scanDelay: 135, laserColor: ConsoleColor.Cyan));
-			robots.Add(new Robot(name: "4-Spook", itemCount: 4, workEfficiency: .04, scanDelay: 500, laserColor: ConsoleColor.White));
+			robots.Add(_robot1);
+			robots.Add(_robot2);
+			robots.Add(_robot3);
+			robots.Add(_robot4);
+
 			Parallel.ForEach(robots, r => r.PickupItems()); ;
 
-
+			robots.Clear();
 		}
 
 
 		private static void StartRobotsTask()
 		{
-			var robot1 = new Robot(name: "1-Mingle", itemCount: 10, workEfficiency: .02, scanDelay: 500);
-			var robot2 = new Robot(name: "2-Yodel", itemCount: 12, workEfficiency: .04, scanDelay: 35, laserColor: ConsoleColor.Yellow);
-			var robot3 = new Robot(name: "3-Blade", itemCount: 7, workEfficiency: .05, scanDelay: 135, laserColor: ConsoleColor.Cyan);
-			var robot4 = new Robot(name: "4-Spook", itemCount: 4, workEfficiency: .04, scanDelay: 500, laserColor: ConsoleColor.White);
-			Task.Factory.StartNew(() => { robot1.PickupItems(); });
-			Task.Factory.StartNew(() => { robot2.PickupItems(); });
-
-			var lastTask = Task.Factory.StartNew(() => { robot3.PickupItems(); });
+			ChargeBatteries();
+			Task.Factory.StartNew(() => { _robot1.PickupItems(); });
+			Task.Factory.StartNew(() => { _robot2.PickupItems(); });
+			Task.Factory.StartNew(() => { _robot3.PickupItems(); });
+			var lastTask = Task.Factory.StartNew(() => { _robot4.PickupItems(); });
 			lastTask.Wait();
 		}
 
+		private static void ChargeBatteries()
+		{
+			_robot1.BatteryLevel = _robot1.BatteryLevel = _robot3.BatteryLevel = _robot4.BatteryLevel = 1;
+		}
+
+	
 		private static async Task StartRobotAsync()
 		{
-			var robot1 = new Robot(name: "1-Mingle", itemCount: 10, workEfficiency: .02, scanDelay: 500);
-			var robot2 = new Robot(name: "2-Yodel", itemCount: 12, workEfficiency: .04, scanDelay: 35, laserColor: ConsoleColor.Yellow);
-			var robot3 = new Robot(name: "3-Blade", itemCount: 7, workEfficiency: .05, scanDelay: 135, laserColor: ConsoleColor.Cyan);
-			var robot4 = new Robot(name: "4-Spook", itemCount: 4, workEfficiency: .04, scanDelay: 500, laserColor: ConsoleColor.White);
-			Task.Factory.StartNew(() => { robot1.PickupItems(); });
-			Task.Factory.StartNew(() => { robot2.PickupItems(); });
-			await Task.Factory.StartNew(() => { robot3.PickupItems(); });
-			await Task.Factory.StartNew(() => { robot4.PickupItems(); });
+
+			ChargeBatteries();
+
+			Task.Factory.StartNew(() => { _robot1.PickupItems(); });
+			Task.Factory.StartNew(() => { _robot2.PickupItems(); });
+			await Task.Factory.StartNew(() => { _robot3.PickupItems(); });
+			await Task.Factory.StartNew(() => { _robot4.PickupItems(); });
 			Task.Delay(2000);
 		}
+
+		private static Robot _robot1 = new Robot(name: "1-Mingle",
+																					itemCount: 10,
+																					workEfficiency: .02,
+																					scanDelay: 500);
+		private static Robot _robot2 = new Robot(name: "2-Yodel",
+																										itemCount: 12,
+																										workEfficiency: .04,
+																										scanDelay: 35,
+																										laserColor: ConsoleColor.Yellow,
+																										outputBuffer: 1);
+		private static Robot _robot3 = new Robot(name: "3-Blade", 
+																							itemCount: 7, 
+																							workEfficiency: .05, 
+																							scanDelay: 135, 
+																							laserColor: ConsoleColor.Cyan, 
+																							outputBuffer: 2);
+		private static Robot _robot4 = new Robot(name: "4-Spook", 
+																										itemCount: 4,
+																										workEfficiency: .04,
+																										scanDelay: 500,
+																										laserColor: ConsoleColor.White,
+																										outputBuffer: 3);
 	}
 
 }

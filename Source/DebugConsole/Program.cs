@@ -85,10 +85,10 @@ namespace DebugConsole
 		static void StartRobotsOneThread()
 		{
 			ChargeBatteries();
-			_robot1.PickupItems();
-			_robot2.PickupItems();
-			_robot3.PickupItems();
-			_robot4.PickupItems();
+			_robot1.FindGemstones();
+			_robot2.FindGemstones();
+			_robot3.FindGemstones();
+			_robot4.FindGemstones();
 		}
 		private static void StartRobotsParellel()
 		{
@@ -99,7 +99,7 @@ namespace DebugConsole
 			robots.Add(_robot3);
 			robots.Add(_robot4);
 
-			Parallel.ForEach(robots, r => r.PickupItems()); ;
+			Parallel.ForEach(robots, r => r.FindGemstones()); ;
 
 			robots.Clear();
 		}
@@ -108,10 +108,10 @@ namespace DebugConsole
 		private static void StartRobotsTask()
 		{
 			ChargeBatteries();
-			Task.Factory.StartNew(() => { _robot1.PickupItems(); });
-			Task.Factory.StartNew(() => { _robot2.PickupItems(); });
-			Task.Factory.StartNew(() => { _robot3.PickupItems(); });
-			var lastTask = Task.Factory.StartNew(() => { _robot4.PickupItems(); });
+			Task.Factory.StartNew(() => { _robot1.FindGemstones(); });
+			Task.Factory.StartNew(() => { _robot2.FindGemstones(); });
+			Task.Factory.StartNew(() => { _robot3.FindGemstones(); });
+			var lastTask = Task.Factory.StartNew(() => { _robot4.FindGemstones(); });
 			lastTask.Wait();
 		}
 
@@ -126,17 +126,17 @@ namespace DebugConsole
 
 			ChargeBatteries();
 
-			Task.Factory.StartNew(() => { _robot1.PickupItems(); });
-			Task.Factory.StartNew(() => { _robot2.PickupItems(); });
-			await Task.Factory.StartNew(() => { _robot3.PickupItems(); });
-			await Task.Factory.StartNew(() => { _robot4.PickupItems(); });
+			Task.Factory.StartNew(() => { _robot1.FindGemstones(); });
+			Task.Factory.StartNew(() => { _robot2.FindGemstones(); });
+			await Task.Factory.StartNew(() => { _robot3.FindGemstones(); });
+			await Task.Factory.StartNew(() => { _robot4.FindGemstones(); });
 			Task.Delay(2000);
 		}
 
 		private static Robot _robot1 = new Robot(name: "1-Mingle",
 																					itemCount: 10,
 																					workEfficiency: .02,
-																					scanDelay: 500);
+																					scanDelay: 500, ConsoleColor.DarkMagenta);
 		private static Robot _robot2 = new Robot(name: "2-Yodel",
 																										itemCount: 12,
 																										workEfficiency: .04,

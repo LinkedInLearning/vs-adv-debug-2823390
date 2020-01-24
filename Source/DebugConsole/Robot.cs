@@ -20,7 +20,8 @@ namespace DebugConsole
 		public int ScanDelay { get; set; }
 		public int ItemCount { get; set; }
 		private string _tabBuffer = "";
-		public void PickupItems()
+		
+		public void FindGemstones()
 		{
 			for (int counter = 1; counter < ItemCount + 1; counter++)
 			{
@@ -31,13 +32,13 @@ namespace DebugConsole
 					break;
 				}
 				Console.ForegroundColor = LaserColor;
-				Console.WriteLine($"{_tabBuffer}{Name} pickup #{counter:D3}");
+				Console.WriteLine($"{_tabBuffer}{Name} found #{counter:D3}");
 				Thread.Sleep(ScanDelay);
 				BatteryLevel = BatteryLevel - (DrainRate + WorkEfficiency);
 
 			}
 			Console.ForegroundColor = LaserColor;
-			Console.WriteLine($"{_tabBuffer}{Name} finished: Battery level: {BatteryLevel:N3} returning to base.");
+			Console.WriteLine($"{_tabBuffer}{Name} finished: Battery level: {BatteryLevel:N3}, \r\n{_tabBuffer}found {ItemCount} gemstones,  returning to base.");
 		}
 		
 		public Robot(string name, int itemCount, double workEfficiency, int scanDelay, ConsoleColor laserColor = ConsoleColor.Green, int outputBuffer= 0)

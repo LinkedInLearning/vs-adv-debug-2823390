@@ -20,28 +20,62 @@ namespace DebugConsole
 		public int ScanDelay { get; set; }
 		public int ItemCount { get; set; }
 		private string _tabBuffer = "";
-		
+
 		public void FindGemstones()
 		{
-			for (int counter = 1; counter < ItemCount + 1; counter++)
+			for (int gemCounter = 1; gemCounter < ItemCount + 1; gemCounter++)
 			{
-				if (BatteryLevel < 0.1)
+				if (IsBatteryLow())
 				{
-					Console.ForegroundColor = LaserColor;
-					Console.WriteLine($"{_tabBuffer}{Name} battery low: Need to recharge");
 					break;
 				}
-				Console.ForegroundColor = LaserColor;
-				Console.WriteLine($"{_tabBuffer}{Name} found #{counter:D3}");
+
+				FindGem(gemCounter);
+				// FindGemstones method.
 				Thread.Sleep(ScanDelay);
-				BatteryLevel = BatteryLevel - (DrainRate + WorkEfficiency);
+				UpdateBattery();
 
 			}
+			RobotFinshed();
+		}
+
+		private void UpdateBattery()
+		{
+			Thread.Sleep(_ran.Next(200, 400));
+			BatteryLevel = BatteryLevel - (DrainRate + WorkEfficiency);
+		}
+
+		private void FindGem(int counter)
+		{
+			Thread.Sleep(_ran.Next(50, 260));
+			Console.ForegroundColor = LaserColor;
+			Console.WriteLine($"{_tabBuffer}{Name} found #{counter:D3}");
+		}
+
+		private Random _ran = new Random();
+		private bool IsBatteryLow()
+		{
+			if (BatteryLevel < 0.1)
+			{
+
+				Console.ForegroundColor = LaserColor;
+				Console.WriteLine($"{_tabBuffer}{Name} battery low: Need to recharge");
+				return true;
+			}
+			else
+			{
+				Thread.Sleep(_ran.Next(200, 4000));
+				return false;
+			}
+		}
+
+		private void RobotFinshed()
+		{
 			Console.ForegroundColor = LaserColor;
 			Console.WriteLine($"{_tabBuffer}{Name} finished: Battery level: {BatteryLevel:N3}, \r\n{_tabBuffer}found {ItemCount} gemstones,  returning to base.");
 		}
-		
-		public Robot(string name, int itemCount, double workEfficiency, int scanDelay, ConsoleColor laserColor = ConsoleColor.Green, int outputBuffer= 0)
+
+		public Robot(string name, int itemCount, double workEfficiency, int scanDelay, ConsoleColor laserColor = ConsoleColor.Green, int outputBuffer = 0)
 		{
 			Name = name;
 			ItemCount = itemCount;

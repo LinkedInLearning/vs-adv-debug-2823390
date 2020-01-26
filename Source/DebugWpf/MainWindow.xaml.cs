@@ -15,7 +15,7 @@ namespace DebugWpf
 
 		private void Button_Click(object sender, RoutedEventArgs e)
 		{
-		
+		 
 			var nameGen = new RobotFactory.TeamBuilder();
 			
 			var roboNames = nameGen.GetRobots();
@@ -31,7 +31,10 @@ namespace DebugWpf
 		private Random _ran = new Random();
 		private void ShowButton_Click(object sender, RoutedEventArgs e)
 		{
-			
+			if (TeamAListBox.Items.Count ==0 || TeamBListBox.Items.Count ==0)
+			{
+				return;
+			}
 				try
 				{
 					var teamAMember = (Robot)(TeamAListBox.Items[_ran.Next(0,(TeamAListBox.Items.Count-1))]);

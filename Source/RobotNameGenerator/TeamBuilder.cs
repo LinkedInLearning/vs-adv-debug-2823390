@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Xml.Linq;
 
 namespace RobotFactory
@@ -14,10 +13,8 @@ namespace RobotFactory
 
 		public TeamBuilder()
 		{
-
 			// read XML instead of text files
 			var xmlDoc = XDocument.Load("RobotNames.xml");
-
 
 			_crewNames = xmlDoc.Root.Elements("CrewNames").Elements("CrewName")
 																.Select(element => element.Value)
@@ -30,11 +27,13 @@ namespace RobotFactory
 				_robotPool.Add(new Robot());
 			}
 		}
+
 		private void BuildRobotPool()
 		{
-
 		}
+
 		private List<Robot> _robotPool = new List<Robot>();
+
 		public List<Robot> GetRobots()
 		{
 			AssignRobotNames();
@@ -58,10 +57,8 @@ namespace RobotFactory
 			var randomizedPrimeNames = GetRandomizedPrimeNames();
 			var randomizedCrewNames = GetRandomizedCrewNames();
 
-
 			for (int i = 0; i < randomizedPrimeNames.Count; i++)
 			{
-
 				_robotPool.ElementAt(i).PrimeName = randomizedPrimeNames.ElementAt(i);
 				_robotPool.ElementAt(i).CrewName = randomizedCrewNames.ElementAt(i);
 			}
@@ -82,6 +79,7 @@ namespace RobotFactory
 							 select name;
 			return q1.ToList();
 		}
+
 		private int RollDice(int diceCount)
 		{
 			int temp = 0;
@@ -93,12 +91,29 @@ namespace RobotFactory
 		}
 	}
 
+	//[DebuggerDisplay("Customized output: {PrimeName, nq}, CrewName = {CrewName}")]
+	// [DebuggerDisplay("{DebuggerDisplay,nq}")]
 	public class Robot
 	{
+		// Instead of overriding ToString to return debugging info
+		// Use the DebuggerDisplay attribute
+		// Get member info with {memberName} in braces
+		// the nq parameter removes the double quotes from the output
+		//[DebuggerDisplay("{DebuggerDisplay, nq}")]
+
 		public string PrimeName { get; set; }
 		public string CrewName { get; set; }
 		public int Speed { get; set; }
 		public int Strength { get; set; }
 		public int Endurance { get; set; }
+
+		// Microsoft best practice guidance is to create a private member
+		// and output the result here.
+		// this technique performs better during debug sessions.
+
+		private string DebuggerDisplay
+		{
+			get { return $"Customized output: {PrimeName}, CrewName = {CrewName}"; }
+		}
 	}
 }

@@ -10,16 +10,20 @@
 				FontSize='18'>
 	<StackPanel Margin='80,50'
 							HorizontalAlignment='Stretch'>
-		<TextBlock Text='Choose Robot Teams' FontSize='22'/>
+		<TextBlock Text='Choose Robot Teams'
+							 FontSize='22' />
 		<Button x:Name='GenerateButton'
-						Content='Generate Robot Teams'
+						Content='Inline Breakpoints'
 						Click='Button_Click' />
-		<Button x:Name='ClearButton'
-						Content='Clear Lists'
-						Click='ClearButton_Click' />
+		<Button x:Name='AttributeButton'
+						Content='DebuggerDisplay attribute'
+						Click='AttributeButton_Click' />
 		<Button x:Name='MessageButton'
-						Content='Show Robot Match'
-						Click='ShowButton_Click' />
+						Content='Recursive'
+						Click='RecursiveButton_Click' />
+		<Button x:Name='OverLoadsButton'
+						Content='Overloads'
+						Click='OverLoadsButton_Click' />
 		<Grid>
 			<Grid.ColumnDefinitions>
 				<ColumnDefinition Width='58*' />
@@ -49,7 +53,8 @@
 				<ListBox.ItemTemplate>
 					<DataTemplate>
 						<StackPanel Orientation='Horizontal'>
-							<TextBlock Text='{Binding PrimeName}' MinWidth='60' />
+							<TextBlock Text='{Binding PrimeName}'
+												 MinWidth='60' />
 							<TextBlock Text="{Binding CrewName, StringFormat='{}[{0}]'}" />
 						</StackPanel>
 					</DataTemplate>
@@ -57,9 +62,6 @@
 			</ListBox>
 		</Grid>
 		<TextBlock x:Name='MatchTextBlock'>
-			
 		</TextBlock>
 	</StackPanel>
 </Window>
-
-  

@@ -95,9 +95,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\RobotNameGenerator\RobotNameGenerator.csproj">
+    <ProjectReference Include="..\RobotNameGenerator\RobotFactory.csproj">
       <Project>{7393332e-89c9-4a9f-b157-654de170636f}</Project>
-      <Name>RobotNameGenerator</Name>
+      <Name>RobotFactory</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.29613.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CodeMaps", "CodeMaps", "{A1EC1918-2611-41A6-BF0D-D6887F76AC8C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RobotNameGenerator", "RobotNameGenerator\RobotNameGenerator.csproj", "{7393332E-89C9-4A9F-B157-654DE170636F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RobotFactory", "RobotNameGenerator\RobotFactory.csproj", "{7393332E-89C9-4A9F-B157-654DE170636F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DebugWpf", "DebugWpf\DebugWpf.csproj", "{B0C286CE-F060-4395-BDA7-353944AF9260}"
 EndProject

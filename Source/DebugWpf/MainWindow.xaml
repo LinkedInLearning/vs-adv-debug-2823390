@@ -18,8 +18,8 @@
 						Content='Clear Lists'
 						Click='ClearButton_Click' />
 		<Button x:Name='MessageButton'
-						Content='Show Message'
-						Click='MessageButton_Click' />
+						Content='Show Robot Match'
+						Click='ShowButton_Click' />
 		<Grid>
 			<Grid.ColumnDefinitions>
 				<ColumnDefinition Width='58*' />

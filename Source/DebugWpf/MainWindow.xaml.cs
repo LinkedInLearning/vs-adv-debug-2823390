@@ -39,9 +39,9 @@ namespace DebugWpf
 			// use the Parallel watch window to
 			// examine variable for each recursive pass.
 
-			//var fact = FactorialCalculator.GetFactorial(12);
 
-			var isPalindrome = Puzzle.IsPalindrome("Tuna roll or a nut");
+			bool isPalindrome;
+			isPalindrome = Puzzle.IsPalindrome("Tuna roll or a nut");
 
 			isPalindrome = Puzzle.IsPalindrome("I am hungry now");
 		}

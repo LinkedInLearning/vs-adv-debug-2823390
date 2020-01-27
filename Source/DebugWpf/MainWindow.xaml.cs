@@ -13,8 +13,6 @@ namespace DebugWpf
 
 		private void Button_Click(object sender, RoutedEventArgs e)
 		{
-			//var robots = new List<string>();
-
 			var robots = new RobotFactory.TeamBuilder().GetRobots();
 
 			var results = robots.Where(x => x.Speed > 10).OrderBy(x => x.PrimeName);

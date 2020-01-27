@@ -93,7 +93,7 @@ namespace RobotFactory
 	}
 
 	//[DebuggerDisplay("Customized output: {PrimeName, nq}, CrewName = {CrewName}")]
- [DebuggerDisplay("{DebuggerDisplay,nq}")]
+ //[DebuggerDisplay("{DebuggerDisplay,nq}")]
 	public class Robot
 	{
 		// Instead of overriding ToString to return debugging info

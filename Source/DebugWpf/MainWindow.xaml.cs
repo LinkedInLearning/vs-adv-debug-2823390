@@ -19,6 +19,8 @@ namespace DebugWpf
 
 			var results = robots.Where(x => x.Speed > 10).OrderBy(x => x.PrimeName);
 
+
+			// initializer; condition; iterator
 			for (int counter = 0; counter < results.Count(); counter++)
 			{
 				Console.WriteLine(counter);

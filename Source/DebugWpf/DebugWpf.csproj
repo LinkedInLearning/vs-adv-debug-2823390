@@ -86,6 +86,8 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="ExtraFiles\Branch-01-08.iTrace" />
+    <None Include="ExtraFiles\DebugWpf.exe_200120_231449_c63e1469-a54c-486e-80e9-6099226432ac.iTrace" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -99,6 +101,10 @@
       <Project>{7393332e-89c9-4a9f-b157-654de170636f}</Project>
       <Name>RobotNameGenerator</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ExtraFiles\DebugWpf.pdb" />
+    <None Include="ExtraFiles\RobotNameGenerator.pdb" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
